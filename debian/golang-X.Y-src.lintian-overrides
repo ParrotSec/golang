@@ -1,0 +1,26 @@
+# golang-X.Y-src ships ELF object files and binaries as testdata for the
+# debug/dwarf, debug/elf and runtime/pprof packages.
+golang-X.Y-src: arch-dependent-file-in-usr-share
+golang-X.Y-src: unstripped-binary-or-object
+golang-X.Y-src: statically-linked-binary
+
+golang-X.Y-src: repeated-path-segment
+golang-X.Y-src: package-contains-documentation-outside-usr-share-doc
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/runtime/race/race_*.syso
+golang-X.Y-src: script-not-executable usr/share/go-X.Y/src/cmd/vendor/golang.org/x/sys/windows/mkknownfolderids.bash
+
+# These files are only testdata
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/debug/dwarf/testdata/*
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/debug/elf/testdata/*
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/go/internal/gccgoimporter/testdata/*
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/go/internal/gcimporter/testdata/*
+golang-X.Y-src: arch-independent-package-contains-binary-or-object usr/share/go-X.Y/src/runtime/pprof/testdata/*
+golang-X.Y-src: binary-with-bad-dynamic-table usr/share/go-X.Y/src/debug/elf/testdata/*
+golang-X.Y-src: broken-bz2 usr/share/go-X.Y/src/compress/bzip2/testdata/*.bz2
+golang-X.Y-src: national-encoding usr/share/go-X.Y/src/fmt/fmt_test.go
+golang-X.Y-src: portable-executable-missing-security-features usr/share/go-X.Y/src/debug/dwarf/testdata/*
+golang-X.Y-src: portable-executable-missing-security-features usr/share/go-X.Y/src/debug/pe/testdata/*
+golang-X.Y-src: shared-library-lacks-prerequisites usr/share/go-X.Y/src/debug/elf/testdata/*
+golang-X.Y-src: undeclared-elf-prerequisites usr/share/go-X.Y/src/debug/dwarf/testdata/*
+golang-X.Y-src: undeclared-elf-prerequisites usr/share/go-X.Y/src/debug/elf/testdata/*
+golang-X.Y-src: unstripped-static-library usr/share/go-X.Y/src/go/internal/gccgoimporter/testdata/*

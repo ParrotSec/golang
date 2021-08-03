@@ -1,0 +1,5 @@
+0001-Disable-test-for-UserHomeDir.patch
+0002-Fix-Lintian-warnings-about-wrong-interpreter-path.patch
+0005-cmd-dist-increase-default-timeout-scale-for-arm.patch
+0006-skip-userns-test-in-schroot-as-well.patch
+0001-cmd-link-check-CGO_CFLAGS-for-non-g-I-O-options-befo.patch
