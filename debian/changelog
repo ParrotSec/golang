@@ -1,5 +1,11 @@
 golang-1.17 (1.17-0parrot1) lts-backports; urgency=medium
 
+  * Import new upstream release.
+
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Thu, 19 Aug 2021 16:40:03 +0200
+
+golang-1.17 (1.17~rc2-0ubuntu1parrot1) lts-backports; urgency=medium
+
   * Import new package from Ubuntu.
 
  -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Thu, 19 Aug 2021 16:33:18 +0200
