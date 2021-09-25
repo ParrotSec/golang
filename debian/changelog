@@ -1,35 +1,86 @@
-golang-1.17 (1.17-0parrot1) lts-backports; urgency=medium
+golang-1.17 (1.17.1-2parrot1) lts-backports; urgency=medium
 
-  * Import new upstream release.
+  * Rebuild for Parrot.
 
- -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Thu, 19 Aug 2021 16:40:03 +0200
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Sat, 25 Sep 2021 15:14:43 +0200
 
-golang-1.17 (1.17~rc2-0ubuntu1parrot1) lts-backports; urgency=medium
+golang-1.17 (1.17.1-1~bpo11+1) bullseye-backports; urgency=medium
 
-  * Import new package from Ubuntu.
+  * New upstream version 1.17.1
+    + CVE-2021-39293: security fix to the archive/zip package
+  * Rebuild for bullseye-backports.
 
- -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Thu, 19 Aug 2021 16:33:18 +0200
+ -- Anthony Fok <foka@debian.org>  Fri, 10 Sep 2021 22:23:57 -0600
 
-golang-1.17 (1.17~rc2-0ubuntu1) impish; urgency=medium
+golang-1.17 (1.17.1-1) unstable; urgency=high
 
-  * New upstream release candidate.
-  * Refresh patches, dropping two that are merged upstream.
+  * New upstream version 1.17.1
+    + CVE-2021-39293: security fix to the archive/zip package
+      The fix for CVE-2021-33196 can be bypassed by crafted inputs.
+      As a result, the NewReader and OpenReader functions in archive/zip
+      can still cause a panic or an unrecoverable fatal error when reading
+      an archive that claims to contain a large number of files,
+      regardless of its actual size.
+      Thanks to the OSS-Fuzz project for discovering this issue
+      and to Emmanuel Odeke for reporting it.
+    + bug fixes to the archive/zip, go/internal/gccgoimporter,
+      html/template, net/http, and runtime/pprof packages
+  * Re-add "Multi-Arch: foreign" hint
+  * Rename Maintainer from "Go Compiler Team" to "Debian Go Compiler Team"
+  * Bump Standards-Version to 4.6.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Fri, 10 Sep 2021 18:01:21 -0600
+
+golang-1.17 (1.17-3~bpo11+1) bullseye-backports; urgency=medium
+
+  * Rebuild for bullseye-backports.
+
+ -- Anthony Fok <foka@debian.org>  Tue, 07 Sep 2021 07:26:37 -0600
+
+golang-1.17 (1.17-3) unstable; urgency=medium
+
+  * Team upload.
+  * Add missing generated buildcfg file (Closes: #993450)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Thu, 02 Sep 2021 00:08:21 +0800
+
+golang-1.17 (1.17-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix extracting go version for gccgo
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 29 Aug 2021 01:16:12 +0800
+
+golang-1.17 (1.17-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 1.17
+  * Refresh patches, dropping
+    0003-cmd-go-cmd-cgo-pass-mfp32-and-mhard-soft-float-to-MI.patch which was
+    merged upstream.
   * Do not include the now-deleted favicon.ico in golang-1.17-doc.
+  * Add one more arch-independent-package-contains-binary-or-object lintian
+    suppression.
 
- -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 03 Aug 2021 20:46:46 +1200
+ -- Michael Hudson-Doyle <mwhudson@debian.org>  Tue, 17 Aug 2021 13:03:28 +1200
 
-golang-1.16 (1.16.5-1ubuntu1) impish; urgency=medium
+golang-1.16 (1.16.7-1) unstable; urgency=medium
 
-  * Merge from Debian unstable. Remaning change:
-    - d/patches/0001-cmd-link-check-CGO_CFLAGS-for-non-g-I-O-options-befo.patch:
-      disable internal linking when dynamically linking and CGO_CFLAGS
-      contains flags that might make host object files that the internal
-      linkers ELF reader does not support. This fixes lots of package builds
-      when LTO is enabled by default via dpkg-buildflags.
-  * d/patches/0007-cmd-link-cmd-cgo-support-flto-in-CFLAGS.patch:
-    backport another patch from upstream to fix some failures seen with LTO.
+  * Team upload.
+  * New upstream version 1.16.7
+    + CVE-2021-36221: net/http: panic due to racy read of persistConn after
+      handler panic
 
- -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Wed, 16 Jun 2021 15:56:28 +1200
+ -- Shengjing Zhu <zhsj@debian.org>  Fri, 06 Aug 2021 02:38:44 +0800
+
+golang-1.16 (1.16.6-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 1.16.6
+    + CVE-2021-34558: crypto/tls: clients can panic when provided a certificate
+      of the wrong type for the negotiated parameters
+
+ -- Shengjing Zhu <zhsj@debian.org>  Tue, 13 Jul 2021 13:11:46 +0800
 
 golang-1.16 (1.16.5-1) unstable; urgency=medium
 
@@ -116,18 +167,6 @@ golang-1.16 (1.16.3-1) unstable; urgency=medium
 
  -- Shengjing Zhu <zhsj@debian.org>  Sun, 18 Apr 2021 03:56:41 +0800
 
-golang-1.16 (1.16.2-0ubuntu1) hirsute; urgency=medium
-
-  * New upstream version.
-
- -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 16 Mar 2021 16:34:16 +1300
-
-golang-1.16 (1.16.1-0ubuntu1) hirsute; urgency=medium
-
-  * New upstream version.
-
- -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Thu, 11 Mar 2021 11:24:27 +1300
-
 golang-1.16 (1.16-1) unstable; urgency=medium
 
   * New upstream version 1.16
@@ -135,17 +174,6 @@ golang-1.16 (1.16-1) unstable; urgency=medium
   * Add myself to Uploaders
 
  -- Anthony Fok <foka@debian.org>  Thu, 18 Feb 2021 00:02:53 -0700
-
-golang-1.16 (1.16-0ubuntu1) hirsute; urgency=medium
-
-  * New upstream version.
-  * d/patches/0001-cmd-link-check-CGO_CFLAGS-for-non-g-I-O-options-befo.patch:
-    disable internal linking when dynamically linking and CGO_CFLAGS contains
-    flags that might make host object files that the internal linkers ELF
-    reader does not support. This fixes lots of package builds when LTO is
-    enabled by default via dpkg-buildflags.
-
- -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Wed, 17 Feb 2021 14:15:58 +1300
 
 golang-1.16 (1.16~rc1-1) unstable; urgency=medium
 

@@ -1,5 +1,5 @@
 [DEFAULT]
-debian-branch = ubuntu-X.Y
+debian-branch = golang-X.Y
 debian-tag = debian/%(version)s
 upstream-branch = upstream-X.Y
 upstream-tag = upstream/%(version)s
